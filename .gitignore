@@ -1,0 +1,20 @@
+# Dependencias de Composer y Node.js
+/vendor/
+/node_modules/
+
+# Configuraciones sensibles
+.env
+.env.*
+.env.local
+
+# Archivos de caché y logs
+
+# Archivos subidos por usuarios
+public/uploads/
+
+# Configuración del IDE/editor
+.vscode/
+.idea/
+*.swp
+# Borrador
+borrador.txt
