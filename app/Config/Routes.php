@@ -43,6 +43,9 @@ $routes->get('/administracion_usuarios', 'Panel\Usuarios::index', ['as' => 'admi
 	$routes->post('/eliminar_usuario', 'Panel\Usuarios::eliminar', ['as' => 'eliminar_usuario']);
 	$routes->post('/restaurar_usuario', 'Panel\Usuarios::recuperar_usuario', ['as' => 'restaurar_usuario']);
 	$routes->post('/actualizar_password', 'Panel\Usuarios::actualizar_password', ['as' => 'actualizar_password']);
+
+	$routes->get('/recuperar_password', 'Usuarios\Login::recuperar_password',['as' => 'recuperar_password']); //Pendiente
+	
 $routes->get('/nuevo_usuario', 'Panel\Usuario_nuevo::index', ['as' => 'nuevo_usuario']);
 $routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => 'registrar_usuario']);
 $routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as' => 'detalles_usuario']);

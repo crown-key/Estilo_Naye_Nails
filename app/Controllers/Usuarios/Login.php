@@ -41,6 +41,13 @@ class Login extends BaseController
         $datos['titulo_pag'] = 'Login';
         return view($nombre_vista, $datos);
     }
+    
+    public function recuperar_password()
+
+{
+    $datos['titulo_pag'] = 'Login';
+    return view('usuarios/recuperar_password', $datos); // Asegúrate de que esta vista exista
+}
 
 
     public function comprobar()

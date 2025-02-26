@@ -20,14 +20,14 @@
                     <?= form_open('validar_usuario', ['id' => 'form-login', 'class' => 'form-horizontal mt-4 pt-4 needs-validation']) ?>
 
                     <div class="mb-4">
-                        <a href="<?= route_to('cliente_inicio') ?>" class="text-letra text-lg font-semibold relative pb-1 after:absolute after:left-1/2 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-letra after:transition-all after:duration-300 hover:after:w-full hover:after:left-0">
-                            &#8592; Volver a la página principal
+                        <a href="<?= route_to('usuario_login') ?>" class="text-letra text-lg font-semibold relative pb-1 after:absolute after:left-1/2 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-letra after:transition-all after:duration-300 hover:after:w-full hover:after:left-0">
+                            &#8592; Volver al incio de sesión
                         </a>
                     </div>
 
                     <div class="mb-12">
-                        <h3 class="text-letra text-3xl font-extrabold">Iniciar sesión</h3>
-                        <p class="text-lg mt-2 text-gray-800">Accede con tu cuenta de administrador.</p>
+                        <h3 class="text-letra text-3xl font-extrabold">Recuperar contraseña</h3>
+                        <p class="text-lg mt-2 text-gray-800">Te enviaremos indicaciones</p>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -59,37 +59,19 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <label for="text-password" class="text-gray-800 text-lg block mb-2">Contraseña:</label>
+                        
                         <div class="relative flex items-center">
-                            <?php
-                            $parametros = [
-                                'type' => 'password',
-                                'class' => 'w-full text-gray-800 text-sm border-b border-gray-300 focus:border-hover pl-2 pr-8 py-3 outline-none',
-                                'id' => 'password',
-                                'name' => 'password',
-                                'placeholder' => 'Ingrese su contraseña',
-                                'required' => '',
-                                'maxlength' => '18'
-                            ];
-                            echo form_password($parametros);
-                            ?>
-                            <svg id="togglePassword" xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2 cursor-pointer" viewBox="0 0 128 128">
-                                <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24 24 24-10.766 24-24-10.766-24-24-24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
-                            </svg>
+                           
+                            
+                            
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap items-center justify-end gap-4 mt-6">
-                        <div>
-                            <a href="<?= route_to('recuperar_password'); ?>" class="text-letra font-semibold text-lg hover:underline">
-                                ¿Olvidaste tu contraseña?
-                            </a>
-                        </div>
-                    </div>
+                    
 
                     <div class="form-group text-center mt-4 mb-3">
                         <button class="w-full shadow-xl py-2.5 px-4 text-lg tracking-wide rounded-md text-white bg-letra hover:bg-hover focus:outline-none" type="submit">
-                            Iniciar sesión
+                            Enviar
                         </button>
                         <br>
                     </div>
@@ -99,7 +81,7 @@
                 </div>
 
                 <div class="w-full h-full flex items-center bg-letra rounded-xl p-8">
-                    <img src="<?= base_url(RECURSOS_IMG . '/login-1.jpg'); ?>" class="w-full aspect-[12/12] border-4 border-white rounded-lg object-contain" alt="login-image" />
+                    <img src="<?= base_url(RECURSOS_IMG . '/login-2.png'); ?>" class="w-full aspect-[12/12] border-4 border-white rounded-lg object-contain" alt="login-image" />
                 </div>
             </div>
         </div>
