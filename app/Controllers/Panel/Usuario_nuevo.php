@@ -115,7 +115,7 @@ class Usuario_nuevo extends BaseController{
 					$usuario['imagen_usuario'] = upload_image($archivo, '', IMG_DIR_USUARIOS, 512, 512, 2097152);
 				}//end if existe imagen
 				if($tabla_usuarios->insert($usuario) > 0){
-					$this->enviar_registro_usuario($usuario['email_usuario'], $usuario, $this->request->getPost('confirm_password'));
+					//$this->enviar_registro_usuario($usuario['email_usuario'], $usuario, $this->request->getPost('confirm_password'));
 					mensaje("El usuario ha sido registrado exitosamente.", SUCCESS_ALERT, "¡Registro exitoso!");
 					return redirect()->to(route_to('administracion_usuarios'));
 				}//end if inserta el usuario

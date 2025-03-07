@@ -178,9 +178,18 @@ define("TAREA_ADMIN_DASHBOARD", "tarea_admin_dashboard");
 // TAREA DASHBOARD
 define("TAREA_TRABAJADOR_DASHBOARD", "tarea_trabajador_dashboard");
 
+//TAREA CITAS
+define("TAREA_CITAS", "tarea_citas");
+
+//TAREA PRODUCTOS
+define("TAREA_PRODUCTOS", "tarea_productos");
+define("TAREA_PRODUCTO_NUEVO", "tarea_producto_nuevo");
+define("TAREA_PRODUCTO_DETALLES", "tarea_producto_detalles");
+
 //******************************************************************************
 //***************************** PERMISOS DE LOS ROLES **************************
 //******************************************************************************
+
 //PERMISOS SUPERADMIN
 define(
     "PERMISOS_SUPERADMIN",
@@ -191,7 +200,11 @@ define(
         TAREA_USUARIOS,
         TAREA_USUARIO_NUEVO,
         TAREA_USUARIO_DETALLES,
-        TAREA_EJEMPLO
+        TAREA_EJEMPLO,
+        TAREA_CITAS,
+        TAREA_PRODUCTOS,
+        TAREA_PRODUCTO_NUEVO,
+        TAREA_PRODUCTO_DETALLES
 
     )
 );
@@ -206,7 +219,11 @@ define(
         TAREA_USUARIOS,
         TAREA_USUARIO_NUEVO,
         TAREA_USUARIO_DETALLES,
-        TAREA_EJEMPLO
+        TAREA_EJEMPLO,
+        TAREA_CITAS,
+        TAREA_PRODUCTOS, 
+        TAREA_PRODUCTO_NUEVO,
+        TAREA_PRODUCTO_DETALLES
 
     )
 );
@@ -214,5 +231,8 @@ define(
 define(
     "PERMISOS_TRABAJADOR",
     array(TAREA_TRABAJADOR_DASHBOARD,
+                  TAREA_PRODUCTOS, 
+                  TAREA_PRODUCTO_NUEVO,
+                  TAREA_PRODUCTO_DETALLES
     )
 );

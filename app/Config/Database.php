@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '',
-        'database'     => 'nails',
+        'database'     => 'naye_nails',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,

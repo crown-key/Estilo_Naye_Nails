@@ -156,7 +156,24 @@ function configurar_menu_lateral_panel($rol_actual = NULL)
          $menu_item['text'] = ' Ejemplo';
          $menu_item['submenu'] = array();
          $menu['ejemplo'] = $menu_item;
-        
+
+        //Sección de Citas
+         $menu_item = array();
+         $menu_item['is_active'] = false;
+         $menu_item['href'] = route_to('citas');
+         $menu_item['icon'] = 'fas fa-user';
+         $menu_item['text'] = ' Citas';
+         $menu_item['submenu'] = array();
+         $menu['citas'] = $menu_item;
+
+         //Sección de Productos
+         $menu_item = array();
+         $menu_item['is_active'] = false;
+         $menu_item['href'] = route_to('administracion_productos');
+         $menu_item['icon'] = 'fas fa-user';
+         $menu_item['text'] = ' Productos';
+         $menu_item['submenu'] = array();
+         $menu['productos'] = $menu_item;
 
     }//end ROL_SUPERADMIN ROL_ADMIN
 
@@ -231,9 +248,28 @@ function activar_menu_item_panel($menu = NULL, $tarea_actual = NULL)
                 break;
                 case TAREA_EJEMPLO:
                     $menu['ejemplo']['is_active'] = TRUE;
-                    break;
-            default:
                 break;
+
+             //SECCIÓN USUARIOS
+            case TAREA_USUARIOS:
+            case TAREA_USUARIO_NUEVO:
+            case TAREA_USUARIO_DETALLES:
+                    $menu['usuarios']['is_active'] = TRUE;
+                    break;
+                    case TAREA_CITAS:
+                        $menu['citas']['is_active'] = TRUE;
+                        break;
+              
+            //SECCIÓN USUARIOS
+            case TAREA_USUARIOS:
+            case TAREA_USUARIO_NUEVO:
+            case TAREA_USUARIO_DETALLES:
+                        $menu['usuarios']['is_active'] = TRUE;
+                        break;
+                        case TAREA_PRODUCTOS:
+                            $menu['productos']['is_active'] = TRUE;
+                            break;  
+                        default:           
 
         }//end switch tarea actual
     }//end if ROL_OFICIAL

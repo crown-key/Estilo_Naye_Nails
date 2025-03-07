@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-12">
         <a type="button" class="btn btn-primary" href="<?= route_to('nuevo_usuario') ?>" style="margin-bottom: 15px;">
-            <i class="fas fa-lg fa-user-plus"></i> Agregar nuevo usuario
+            <i class="fas fa-lg fa-user-plus"></i> Agregar nueva usuario
         </a>
         <div class="card">
             <div class="border-bottom title-part-padding">
