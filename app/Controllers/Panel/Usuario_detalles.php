@@ -149,7 +149,7 @@ class Usuario_detalles extends BaseController{
 						$pass = $this->request->getPost('confirm_password');
 					}//end 
 
-					$this->enviar_editar_usuario($usuario['email_usuario'], $usuario, $pass);
+					//$this->enviar_editar_usuario($usuario['email_usuario'], $usuario, $pass);
 					mensaje("El usuario ha sido actualizado exitosamente", SUCCESS_ALERT, "¡Actualización exitosa!");
 					return redirect()->to(route_to('detalles_usuario', $id_usuario));
 				}//end if actualiza el usuario

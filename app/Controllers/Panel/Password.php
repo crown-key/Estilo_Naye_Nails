@@ -1,10 +1,8 @@
 <?php namespace App\Controllers\Panel;
 use App\Controllers\BaseController;
 use App\Libraries\Permisos;
-
 class Password extends BaseController{
 	private $permitido = true;
-
 	public function __construct(){
 		$session = session();
 		if(!Permisos::is_rol_permitido(TAREA_PASSWORD, isset($session->rol_actual['clave']) ? $session->rol_actual['clave'] : -1)) {
@@ -14,7 +12,6 @@ class Password extends BaseController{
 			$session->tarea_actual = TAREA_PASSWORD;
 		}//end else rol permitido
 	}//end constructor
-
 	public function index(){
 		if($this->permitido){
 			return $this->crear_vista("panel/password", $this->cargar_datos());
@@ -23,7 +20,6 @@ class Password extends BaseController{
 			return redirect()->to(route_to('login'));
 		}//end else rol no permitido
 	}//end index
-
 	private function cargar_datos(){
 		//======================================================================
 		//==========================DATOS FUNDAMENTALES=========================
@@ -35,12 +31,10 @@ class Password extends BaseController{
 		$datos['imagen_usuario'] = ($session->imagen_usuario == NULL ?
 								   ($session->sexo_usuario == SEXO_MASCULINO ? 'no-image-m.png' : 'no-image-f.png') :
 									$session->imagen_usuario);
-
 		//======================================================================
 		//========================DATOS PROPIOS CONTROLLER======================
 		//======================================================================
 		$datos['nombre_pagina'] = 'Cambiar Contraseña';
-
 		//Breadcrumb
 		$navegacion = array(
 							array(
@@ -54,15 +48,12 @@ class Password extends BaseController{
                         	)
                       );
     	$datos['breadcrumb'] = breadcrumb_panel($navegacion, 'Cambiar Mi Contraseña');
-
 		return $datos;
 	}//end cargar_datos
-
 	private function crear_vista($nombre_vista,$contenido = array()){
 		$contenido['menu'] = crear_menu_panel();
 		return view($nombre_vista, $contenido);
 	}//end crear_vista
-
 	private function enviar_editar_usuario($email = NULL, $usuario = array(), $password_usuario = NULL) {
 		$configuracion_correo = array();
 		$configuracion_correo['asunto'] = 'Actualización de Contraseña';
@@ -77,7 +68,6 @@ class Password extends BaseController{
 		$plantilla_email = view('plantilla/email_base', $configuracion_correo);
 		return enviar_correo_individual(CORREO_EMISOR_SISTEMA, ACRONIMO_SISTEMA , $email, $configuracion_correo['asunto'], $plantilla_email);
 	}//end enviar_editar_usuario
-
 	public function actualizar(){
 		if($this->permitido){
 			$tabla_usuarios = new \App\Models\Tabla_usuarios;
@@ -107,5 +97,4 @@ class Password extends BaseController{
 			return $this->index();
 		}//end else es un usuario permitido
 	}//end actualizar
-
 }//End Class Password

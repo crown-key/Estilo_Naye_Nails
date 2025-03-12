@@ -53,22 +53,22 @@
                                          '</td>';
                                     echo '<td class="special-cell text-center" nowrap="nowrap">';
                                     if(isset($producto->eliminacion)){
-                    					echo '<button type="button" class="btn btn-light-danger text-danger recover-user btn-circle" id="recover-user_'.$producto->id_producto.'" data-bs-toggle="tooltip" data-bs-placement="top" title="Recuperar el producto">
+                    					echo '<button type="button" class="btn btn-light-danger text-danger recover-producto btn-circle" id="recover-producto_'.$producto->id_producto.'" data-bs-toggle="tooltip" data-bs-placement="top" title="Recuperar el producto">
                     							<i data-feather="rotate-ccw" class="feather fill-white"></i>
                     						  </button>';
                     				}//end if el usuario ha sido eliminado
                                     else{
                                         
                                         echo '&nbsp;&nbsp;&nbsp;';
-                                        echo '<a type="button" href="'.route_to('detalles_producto', $producto->id_producto).'" class="btn btn-warning btn-circle" id="'.$producto->id_producto.'" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar al producto">
+                                        echo '<a type="button" href="'.route_to('detalles_producto', $producto->id_producto).'" class="btn btn-warning btn-circle" id="'.$producto->id_producto.'" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar el producto">
                                                     <i data-feather="edit-3" class="feather fill-white"></i>
                                               </a>';
-                                        
-                                        
+            
                                         echo '&nbsp;&nbsp;&nbsp;';
-                                        echo '<button type="button" class="btn btn-danger eliminar btn-circle" id="'.$producto->id_producto.'" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar al producto">
+                                        echo '<button type="button" class="btn btn-danger eliminar-producto btn-circle" id="'.$producto->id_producto.'" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar el producto">
                                                     <i data-feather="trash-2" class="feather fill-white"></i>
                                               </button>';
+                                              
                                     }//end else el usuario ha sido eliminado
                                     echo '</td>';
                                     echo '</tr>';
@@ -103,5 +103,5 @@
     <script src="<?php echo base_url(RECURSOS_PANEL_JS."/owns/form-options.js") ?>"></script>
 
     <!-- JS específico -->
-    <script src="<?php echo base_url(RECURSOS_PANEL_JS."/specifics/usuarios.js") ?>"></script>
+    <script src="<?php echo base_url(RECURSOS_PANEL_JS."/specifics/productos.js") ?>"></script>
 <?= $this->endSection(); ?>

@@ -36,16 +36,16 @@ $routes->post('/editar_password', 'Panel\Password::actualizar', ['as' => 'editar
 
 //Dashboard
 $routes->get('/dashboard', 'Panel\Dashboard::index', ['as' => 'dashboard_superadmin']);
+$routes->get('/dashboard', 'Panel\Dashboard::index', ['as' => 'dashboard_admin']);
 
 //Usuarios
 $routes->get('/administracion_usuarios', 'Panel\Usuarios::index', ['as' => 'administracion_usuarios']);
-	$routes->post('/estatus_usuario', 'Panel\Usuarios::estatus', ['as' => 'estatus_usuario']);
-	$routes->post('/eliminar_usuario', 'Panel\Usuarios::eliminar', ['as' => 'eliminar_usuario']);
-	$routes->post('/restaurar_usuario', 'Panel\Usuarios::recuperar_usuario', ['as' => 'restaurar_usuario']);
-	$routes->post('/actualizar_password', 'Panel\Usuarios::actualizar_password', ['as' => 'actualizar_password']);
+$routes->post('/estatus_usuario', 'Panel\Usuarios::estatus', ['as' => 'estatus_usuario']);
+$routes->post('/eliminar_usuario', 'Panel\Usuarios::eliminar', ['as' => 'eliminar_usuario']);
+$routes->post('/restaurar_usuario', 'Panel\Usuarios::recuperar_usuario', ['as' => 'restaurar_usuario']);
+$routes->post('/actualizar_password', 'Panel\Usuarios::actualizar_password', ['as' => 'actualizar_password']);
+$routes->get('/recuperar_password', 'Usuarios\Login::recuperar_password',['as' => 'recuperar_password']); //Pendiente
 
-	$routes->get('/recuperar_password', 'Usuarios\Login::recuperar_password',['as' => 'recuperar_password']); //Pendiente
-	
 $routes->get('/nuevo_usuario', 'Panel\Usuario_nuevo::index', ['as' => 'nuevo_usuario']);
 $routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => 'registrar_usuario']);
 $routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as' => 'detalles_usuario']);
@@ -54,13 +54,11 @@ $routes->post('/editar_usuario', 'Panel\Usuario_detalles::editar', ['as' => 'edi
 	//ejemplo
 	$routes->get('/ejemplo', 'Panel\Ejemplo::index', ['as' => 'ejemplo']);
 
-	//Productos 
-	$routes->get('/administracion_productos', 'Panel\Productos::index', ['as' => 'administracion_productos']);
-	$routes->post('/estatus_producto', 'Panel\Productos::estatus', ['as' => 'estatus_producto']);
-	$routes->post('/eliminar_producto', 'Panel\Productos::eliminar', ['as' => 'eliminar_producto']);
-	$routes->post('/restaurar_producto', 'Panel\Productos::recuperar_usuario', ['as' => 'restaurar_producto']);
-	$routes->post('/actualizar_producto', 'Panel\Productos::actualizar_producto', ['as' => 'actualizar_producto']);
-	$routes->get('/detalles_producto/(:num)', 'Panel\Productos_detalles::index/$1', ['as' => 'detalles_producto']);
+//Productos 
+$routes->get('/administracion_productos', 'Panel\Productos::index', ['as' => 'administracion_productos']);
+
+$routes->post('/eliminar_producto', 'Panel\Productos::eliminar_producto', ['as' => 'eliminar_producto']);
+$routes->post('/recuperar_producto', 'Panel\Productos::recuperar_producto', ['as' => 'recuperar_producto']);
     
 $routes->get('/nuevo_producto', 'Panel\Producto_nuevo::index', ['as' => 'nuevo_producto']);
 $routes->post('/registrar_producto', 'Panel\Producto_nuevo::registrar_producto', ['as' => 'registrar_producto']);
@@ -68,8 +66,7 @@ $routes->get('/detalles_producto/(:num)', 'Panel\Producto_detalles::index/$1', [
 $routes->post('/editar_producto', 'Panel\Producto_detalles::editar_producto', ['as' => 'editar_producto']);
 
 
-	//Citas 
-
-	$routes->get('/citas', 'Panel\Citas::index', ['as' => 'citas']);
+//Citas 
+$routes->get('/citas', 'Panel\Citas::index', ['as' => 'citas']);
 
 

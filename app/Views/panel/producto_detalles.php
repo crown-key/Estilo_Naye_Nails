@@ -73,20 +73,13 @@
                             </div>
                         </div>
                     </div>
-
-                   
-                        
-
-                    </div>
-
                     
-                        
-                        
-                    </div>
-
                     <div class="text-center">
                         <a type="button" href="<?= route_to('administracion_productos') ?>" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                         &nbsp;&nbsp;&nbsp;
+                        <?php
+                          echo form_hidden('id_producto', $producto->id_producto);
+                          ?>
                         <button class="btn btn-primary" type="submit" id="btn-guardar"><i class="fa fa-lg fa-save"></i> Guardar cambios</button>
                     </div>
                 <?= form_close() ?>
@@ -113,8 +106,6 @@
     <script src="<?php echo base_url(RECURSOS_PANEL_JS."/owns/message-notification.js") ?>"></script>
 
     <!-- JS específico -->
-    <script>
-        let urlImg = "../../recursos_panel_monster/images/profile-images/<?= ($usuario->imagen_usuario == NULL ? ($usuario->sexo_usuario == SEXO_MASCULINO ? 'no-image-m.png' : 'no-image-f.png') : $usuario->imagen_usuario) ?>";
-    </script>
+    
     <script src="<?php echo base_url(RECURSOS_PANEL_JS."/specifics/usuario_detalles.js") ?>"></script>
 <?= $this->endSection(); ?>

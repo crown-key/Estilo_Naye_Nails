@@ -1,10 +1,10 @@
-<?php namespace App\Controllers\Panel;
+<?php 
+namespace App\Controllers\Panel;
 use App\Controllers\BaseController;
 use App\Libraries\Permisos;
 
 class Ejemplo extends BaseController{
 	private $permitido = true;
-
 	public function __construct(){
 		$session = session();
 		if(!Permisos::is_rol_permitido(TAREA_EJEMPLO, isset($session->rol_actual['clave']) ? $session->rol_actual['clave'] : -1)) {
@@ -14,7 +14,6 @@ class Ejemplo extends BaseController{
 			$session->tarea_actual = TAREA_EJEMPLO;
 		}//end else rol permitido
 	}//end constructor
-
 	public function index(){
 		if($this->permitido){
 			return $this->crear_vista("panel/ejemplo", $this->cargar_datos());
@@ -23,7 +22,6 @@ class Ejemplo extends BaseController{
 			return redirect()->to(route_to('login'));
 		}//end else rol no permitido
 	}//end index
-
 	private function cargar_datos(){
 		//======================================================================
 		//==========================DATOS FUNDAMENTALES=========================
@@ -35,18 +33,14 @@ class Ejemplo extends BaseController{
 		$datos['imagen_usuario'] = ($session->imagen_usuario == NULL ?
 								   ($session->sexo_usuario == SEXO_MASCULINO ? 'no-image-m.png' : 'no-image-f.png') :
 									$session->imagen_usuario);
-
 		//======================================================================
 		//========================DATOS PROPIOS CONTROLLER======================
 		//======================================================================
 		$datos['nombre_pagina'] = 'Ejemplo';
-
 		//Breadcrumb
     	$datos['breadcrumb'] = '';
-
 		return $datos;
 	}//end cargar_datos
-
 	private function crear_vista($nombre_vista, $contenido = array()){
 		$contenido['menu'] = crear_menu_panel();
 		return view($nombre_vista, $contenido);

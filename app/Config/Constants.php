@@ -209,7 +209,7 @@ define(
     )
 );
 
-//PERMISOS SUPERADMIN
+//PERMISOS ADMIN
 define(
     "PERMISOS_ADMIN",
     array(
@@ -227,6 +227,8 @@ define(
 
     )
 );
+
+//PERMISOS ADMIN
 
 define(
     "PERMISOS_TRABAJADOR",

@@ -1,0 +1,124 @@
+CRITICAL - 2025-03-08 04:05:09 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "diseño-11.jpg"
+[Method: GET, Route: resource/images/dise%C3%B1o-11.jpg]
+in SYSTEMPATH\Router\Router.php on line 739.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('resource/images/diseño-11.jpg')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('resource/images/diseño-11.jpg')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp2\\htdocs\\Estilo_Naye_Nails\\public\\index.php')
+DEBUG - 2025-03-08 21:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 21:33:14 --> Usuario encontrado: Superadmin
+DEBUG - 2025-03-08 21:33:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-08 21:33:15 --> Redirigiendo a dashboard para el rol SUPERADMIN
+CRITICAL - 2025-03-08 21:33:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Updates are not allowed unless they contain a "where" or "like" clause.
+[Method: POST, Route: editar_producto]
+in SYSTEMPATH\Model.php on line 456.
+ 1 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\Panel\Producto_detalles.php(109): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->editar_producto()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 21:52:51 --> Error: Call to undefined method App\Controllers\Panel\Producto_detalles::crear_vista()
+[Method: GET, Route: detalles_producto/2]
+in APPPATH\Controllers\Panel\Producto_detalles.php on line 147.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->index('2')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 21:59:19 --> Error: Call to undefined method App\Controllers\Panel\Producto_detalles::crear_vista()
+[Method: GET, Route: detalles_producto/2]
+in APPPATH\Controllers\Panel\Producto_detalles.php on line 148.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->index('2')
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 22:06:27 --> Error: Call to undefined method App\Controllers\Panel\Producto_detalles::crear_vista()
+[Method: GET, Route: detalles_producto/2]
+in APPPATH\Controllers\Panel\Producto_detalles.php on line 147.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->index(2)
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 22:24:50 --> CodeIgniter\Router\Exceptions\RouterException: Router.invalidParameterType
+[Method: POST, Route: editar_producto]
+in SYSTEMPATH\Router\RouteCollection.php on line 1395.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1395): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1205): CodeIgniter\Router\RouteCollection->buildReverseRoute('detalles_producto/(:num)', [...])
+ 3 SYSTEMPATH\Common.php(955): CodeIgniter\Router\RouteCollection->reverseRoute('detalles_producto', 'N')
+ 4 APPPATH\Controllers\Panel\Producto_detalles.php(240): route_to('detalles_producto', 'N')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->editar_producto()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 22:25:41 --> CodeIgniter\Router\Exceptions\RouterException: Router.invalidParameterType
+[Method: POST, Route: editar_producto]
+in SYSTEMPATH\Router\RouteCollection.php on line 1395.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1395): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1205): CodeIgniter\Router\RouteCollection->buildReverseRoute('detalles_producto/(:num)', [...])
+ 3 SYSTEMPATH\Common.php(955): CodeIgniter\Router\RouteCollection->reverseRoute('detalles_producto', 'Acetonus')
+ 4 APPPATH\Controllers\Panel\Producto_detalles.php(240): route_to('detalles_producto', 'Acetonus')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->editar_producto()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 22:26:06 --> CodeIgniter\Router\Exceptions\RouterException: Router.invalidParameterType
+[Method: POST, Route: editar_producto]
+in SYSTEMPATH\Router\RouteCollection.php on line 1395.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1395): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1205): CodeIgniter\Router\RouteCollection->buildReverseRoute('detalles_producto/(:num)', [...])
+ 3 SYSTEMPATH\Common.php(955): CodeIgniter\Router\RouteCollection->reverseRoute('detalles_producto', 'Acetonus')
+ 4 APPPATH\Controllers\Panel\Producto_detalles.php(240): route_to('detalles_producto', 'Acetonus')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->editar_producto()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 22:29:10 --> ErrorException: Undefined variable $id_producto
+[Method: POST, Route: editar_producto]
+in APPPATH\Controllers\Panel\Producto_detalles.php on line 206.
+ 1 APPPATH\Controllers\Panel\Producto_detalles.php(206): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_producto', 'C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\app\\Controllers\\Panel\\Producto_detalles.php', 206)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->editar_producto()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')
+CRITICAL - 2025-03-08 22:30:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Updates are not allowed unless they contain a "where" or "like" clause.
+[Method: POST, Route: editar_producto]
+in SYSTEMPATH\Model.php on line 456.
+ 1 SYSTEMPATH\BaseModel.php(1027): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\Panel\Producto_detalles.php(238): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Panel\Producto_detalles->editar_producto()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Panel\Producto_detalles))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Nuevo_Estilo_Naye\\Estilo_Naye_Nails\\public\\index.php')

@@ -198,6 +198,8 @@
                     <div class="text-center">
                         <a type="button" href="<?= route_to('administracion_usuarios') ?>" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
                         &nbsp;&nbsp;&nbsp;
+                                            
+
                         <button class="btn btn-primary" type="submit" id="btn-guardar"><i class="fa fa-lg fa-save"></i> Guardar cambios</button>
                     </div>
                 <?= form_close() ?>

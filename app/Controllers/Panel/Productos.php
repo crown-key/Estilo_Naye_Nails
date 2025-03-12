@@ -67,10 +67,10 @@ class Productos extends BaseController{
 
 	
 
-	public function eliminar() {
+	public function eliminar_producto() {
 		if($this->permitido){
 			$tabla_productos = new \App\Models\Tabla_productos;
-			if($tabla_productos->delete($this->request->getPost('id_producto'))) {
+			if($tabla_productos->delete($this->request->getPost('id'))) {
 				mensaje("El producto ha sido eliminado exitosamente", SUCCESS_ALERT, "¡Producto eliminado!");
 				return $this->response->setJSON(['error' => 0]);
 			}//end if elimina
@@ -82,7 +82,7 @@ class Productos extends BaseController{
 		else{
 			mensaje("Hubo un error al eliminar el producto, intenta nuevamente", DANGER_ALERT, "¡Error al eliminar!");
 			return $this->response->setJSON(['error' => 1]);
-		}//end else es un usuario permitido
+		}//end else de es permitido
     }//end eliminar
 
 	public function recuperar_producto() {
@@ -114,31 +114,6 @@ class Productos extends BaseController{
 			return $this->response->setJSON(['error' => -1, 'mensaje' => array(), 'actions' => array()]);
 		}//end else es un usuario permitido
 	}//end recuperar_usuario
-
-	public function actualizar_producto()
-{
-    if ($this->permitido) {
-        $tabla_productos = new \App\Models\Tabla_productos;
-        $id_producto = $this->request->getPost('id_producto');
-        
-        $producto = [
-            'actualizacion' => fecha_actual(),
-            'nombre_producto' => $this->request->getPost('nombre_producto'),
-            'descripcion' => $this->request->getPost('descripcion'),
-            'cantidad' => $this->request->getPost('cantidad'),
-        ];
-        
-        if ($tabla_productos->update($id_producto, $producto)) {
-            mensaje("El producto se ha actualizado exitosamente.", SUCCESS_ALERT, "¡Producto actualizado!");
-            return redirect()->to(route_to('administracion_productos'));
-        } else {
-            mensaje("Hubo un error al actualizar el producto. Intente de nuevo, por favor.", ERROR_ALERT, "¡Producto no actualizado!");
-            return redirect()->to(route_to('administracion_productos'));
-        }
-    } else {
-        mensaje("No tienes permisos para actualizar el producto.", ERROR_ALERT, "¡Acceso denegado!");
-        return $this->response->setJSON(['error' => 1]);
-    }
-}
+	
 
 }//End Class Usuarios

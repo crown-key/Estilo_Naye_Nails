@@ -89,7 +89,7 @@ class Login extends BaseController
                     return redirect()->to(route_to('dashboard_admin'));
                 case ROL_TRABAJADOR['clave']:
                     $session->set("tarea_actual", TAREA_TRABAJADOR_DASHBOARD);
-                    log_message('info', 'Redirigiendo a dashboard_psicologo para el rol PSICOLOGO');
+                    log_message('info', 'Redirigiendo a dashboard para el rol trabajador');
                     return redirect()->to(route_to('dashboard_trabajador'));
                 default:
                     log_message('info', 'Redirigiendo al login');
