@@ -1,251 +1,143 @@
 <?php
+
 namespace App\Controllers\Panel;
+
 use App\Controllers\BaseController;
 use App\Libraries\Permisos;
 
-/*class Producto_detalles extends BaseController{
-	private $permitido = true;
-
-	public function __construct(){
-		$session = session();
-		if(!Permisos::is_rol_permitido(TAREA_PRODUCTO_DETALLES, isset($session->rol_actual['clave']) ? $session->rol_actual['clave'] : -1)) {
-			$this->permitido = false;
-		}//end if rol no permitido
-		else{
-			$session->tarea_actual = TAREA_PRODUCTO_DETALLES;
-		}//end else rol permitido
-	}//end constructor
-
-	public function index($id_producto = 0){
-		if($this->permitido){
-			$tabla_productos = new \App\Models\Tabla_productos;
-			$producto = $tabla_productos->obtener_producto($id_producto);
-			if($producto == NULL){
-				mensaje('No se encuentra el producto proporcionado.', WARNING_ALERT, '¡Producto no encontrado!');
-				return redirect()->to(route_to('administracion_productos'));
-			}//end if no existe el producto
-			else{
-				
-					return $this->crear_vista("panel/producto_detalles", $this->cargar_datos($producto));
-				
-			}//end else no existe
-		}//end if producto permitido
-		else{
-			mensaje('No tienes permisos para acceder a esta sección.', DANGER_ALERT, '¡Acceso no autorizado!');
-			return redirect()->to(route_to('login'));
-		}//end else rol no permitido
-	}//end index
-
-	private function cargar_datos($producto = NULL){
-		//======================================================================
-		//==========================DATOS FUNDAMENTALES=========================
-		//======================================================================
-		$datos = array();
-		$session = session();
-		$datos['nombre_completo_usuario'] = $session->nombre_completo_usuario;
-		$datos['email_usuario'] = $session->email_usuario;
-		$datos['imagen_usuario'] = ($session->imagen_usuario == NULL ?
-								   ($session->sexo_usuario == SEXO_MASCULINO ? 'no-image-m.png' : 'no-image-f.png') :
-									$session->imagen_usuario);
-
-		//======================================================================
-		//========================DATOS PROPIOS CONTROLLER======================
-		//======================================================================
-		$datos['nombre_pagina'] = 'Detalles usuario';
-		//Cargar modelos
-		$tabla_roles = new \App\Models\Tabla_roles;
-		$datos['roles'] = $tabla_roles->obtener_roles($session->rol_actual['clave']);
-		$datos['producto'] = $producto;
-
-		//Breadcrumb
-		$navegacion = array(
-							array(
-                          		'tarea' => 'Productos',
-                          		'href' => route_to('administracion_productos'),
-								'extra' => ''
-                        	),
-							array(
-                          		'tarea' => 'Detalles producto',
-                          		'href' => '#'
-                        	)
-                      );
-    	$datos['breadcrumb'] = breadcrumb_panel($navegacion, 'Detalles del producto:');
-
-		return $datos;
-	}//end cargar_datos
-
-	private function crear_vista($nombre_vista, $contenido = array()){
-		$contenido['menu'] = crear_menu_panel();
-		return view($nombre_vista, $contenido);
-	}//end crear_vista
-
-	
-   
-    
-	public function editar_producto(){
-		if($this->permitido){
-			$id_producto = $this->request->getPost('id_producto');
-
-			if($this->request->getPost('nombre_producto') == NULL){
-				mensaje("Debes poner un nombre", DANGER_ALERT, "¡No se pudo registrar!");
-				return $this->index($id_producto);
-			}//end if no existe sexo seleccionado
-			$tabla_productos = new \App\Models\Tabla_productos;
-			$producto = array();
-			$producto['nombre_producto'] = $this->request->getPost('nombre_producto');
-			$producto['descripcion'] = $this->request->getPost('descripcion');
-			$producto['cantidad'] = $this->request->getPost('cantidad');
-			$opcion = $tabla_productos->existe_producto($producto['nombre_producto']);
-			if($opcion == 2 || $opcion == -100){
-				if($opcion == 2){
-					mensaje("El producto proporcionado ya está registrado", WARNING_ALERT, "¡Ya registrado!");
-				}//end if correo en uso
-				if($opcion == -100){
-					mensaje("El correo proporcionado se encuentra en el histórico de productos eliminados", WARNING_ALERT, "¡Producto en uso!");
-				}//end if correo eliminado
-				return $this->index($id_producto);
-			}//end if existe el email
-			else {
-					if($tabla_productos->update($id_producto, $producto)){
-					mensaje("El producto ha sido actualizado exitosamente", SUCCESS_ALERT, "¡Actualización exitosa!");
-					return redirect()->to(route_to('detalles_producto', $id_producto));
-				}//end if actualiza el usuario
-				else{
-					mensaje("Hubo un error al actualizar al usuario. Intente nuevamente, por favor", DANGER_ALERT, "¡Error al actualizar!");
-					return redirect()->to(route_to('detalles_producto', $id_producto));
-				}//end else actualiza el usuario
-			}//end else existe email
-		}//end if es un usuario permitido
-		else{
-			return $this->index();
-		}//end else es un usuario permitido
-	}//end editar*/
-
-///End Class Usuario_detalles
-
-
-
-class Producto_detalles extends BaseController {
+class Producto_detalles extends BaseController
+{
     private $permitido = true;
 
-    public function __construct() {
+    public function __construct()
+    {
         $session = session();
-        if (!isset($session->rol_actual['clave'])) {
+        if (!Permisos::is_rol_permitido(TAREA_PRODUCTO_DETALLES, isset($session->rol_actual['clave']) ? $session->rol_actual['clave'] : -1)) {
             $this->permitido = false;
-        }
-    }
-    public function index($id_producto = 0){
-		$id_producto = intval($id_producto); // Convierte a entero
+        } //end if rol no permitido
+        else {
+            $session->tarea_actual = TAREA_PRODUCTO_DETALLES;
+        } //end else rol permitido
+    } //end constructor
 
-		if($this->permitido){
-			$tabla_productos = new \App\Models\Tabla_productos;
-			$producto = $tabla_productos->obtener_producto($id_producto);
-			if($producto == NULL){
-				mensaje('No se encuentra el producto proporcionado.', WARNING_ALERT, '¡Producto no encontrado!');
-				return redirect()->to(route_to('administracion_productos'));
-			}//end if no existe el producto
-			else{
-			return $this->crear_vista("panel/producto_detalles", $this->cargar_datos($producto));
-			}//end else no existe
-		}//end if producto permitido
-		else{
-			mensaje('No tienes permisos para acceder a esta sección.', DANGER_ALERT, '¡Acceso no autorizado!');
-			return redirect()->to(route_to('login'));
-		}//end else rol no permitido
-	}//end index 
-
-	private function cargar_datos($producto = NULL){
-		//======================================================================
-		//==========================DATOS FUNDAMENTALES=========================
-		//======================================================================
-		$datos = array();
-		$session = session();
-		$datos['nombre_completo_usuario'] = $session->nombre_completo_usuario;
-		$datos['email_usuario'] = $session->email_usuario;
-		$datos['imagen_usuario'] = ($session->imagen_usuario == NULL ?
-								   ($session->sexo_usuario == SEXO_MASCULINO ? 'no-image-m.png' : 'no-image-f.png') :
-									$session->imagen_usuario);
-
-		//======================================================================
-		//========================DATOS PROPIOS CONTROLLER======================
-		//======================================================================
-		$datos['nombre_pagina'] = 'Detalles usuario';
-		//Cargar modelos
-		$tabla_roles = new \App\Models\Tabla_roles;
-		$datos['roles'] = $tabla_roles->obtener_roles($session->rol_actual['clave']);
-		$datos['producto'] = $producto;
-
-		//Breadcrumb
-		$navegacion = array(
-							array(
-                          		'tarea' => 'Productos',
-                          		'href' => route_to('administracion_productos'),
-								'extra' => ''
-                        	),
-							array(
-                          		'tarea' => 'Detalles producto',
-                          		'href' => '#'
-                        	)
-                      );
-    	$datos['breadcrumb'] = breadcrumb_panel($navegacion, 'Detalles del producto:');
-
-		return $datos;
-	}//end cargar_datos
-
-	private function crear_vista($nombre_vista, $contenido = array()){
-		$contenido['menu'] = crear_menu_panel();
-		return view($nombre_vista, $contenido);
-	}//end crear_vista
-
-	
-
-    public function editar_producto() {
+    public function index($id_producto = 0)
+    {
         if ($this->permitido) {
-            $id_producto = $this->request->getPost('id_producto');
+            $tabla_productos = new \App\Models\Tabla_productos;
 
-            if (!$id_producto) {
-                mensaje("ID de producto no válido", DANGER_ALERT, "¡Error!");
+            $producto = $tabla_productos->obtener_producto($id_producto);
+            if ($producto == NULL) {
+                mensaje('No se encuentra el producto proporcionado.', WARNING_ALERT, '¡producto no encontrado!');
                 return redirect()->to(route_to('administracion_productos'));
-            }
-
-            $nombre_producto = $this->request->getPost('nombre_producto');
-            if (!$nombre_producto) {
-                mensaje("Debes poner un nombre", DANGER_ALERT, "¡No se pudo actualizar!");
-                return $this->index($id_producto);
-            }
-
-            $descripcion = $this->request->getPost('descripcion');
-            $cantidad = $this->request->getPost('cantidad');
-
-            $tabla_productos = new \App\Models\Tabla_productos();
-
-            // Verifica si el nombre ya existe en otro producto
-            $existe = $tabla_productos->where('nombre_producto', $nombre_producto)
-                                      ->where('id_producto !=', $id_producto)
-                                      ->countAllResults();
-
-            if ($existe > 0) {
-                mensaje("El nombre de producto ya está en uso", WARNING_ALERT, "¡Ya registrado!");
-                return $this->index($id_producto);
-            }
-
-            $producto = [
-                'nombre_producto' => $nombre_producto,
-                'descripcion' => $descripcion,
-                'cantidad' => $cantidad,
-            ];
-
-            if ($tabla_productos->update($id_producto, $producto)) {
-                mensaje("El producto ha sido actualizado exitosamente", SUCCESS_ALERT, "¡Actualización exitosa!");
-                return redirect()->to(route_to('administracion_productos', $id_producto));
             } else {
-                mensaje("Error al actualizar el producto. Intente nuevamente", DANGER_ALERT, "¡Error!");
-                return redirect()->to(route_to('administracion_productos', $id_producto));
+
+                return $this->crear_vista("panel/producto_detalles", $this->cargar_datos($producto));
             }
         } else {
-            mensaje("No tienes permisos para editar este producto", DANGER_ALERT, "¡Acceso denegado!");
+            mensaje('No tienes permisos para acceder a esta sección.', DANGER_ALERT, '¡Acceso no autorizado!');
             return redirect()->to(route_to('login'));
         }
     }
-}
 
+
+    private function cargar_datos($producto = NULL)
+    {
+        //======================================================================
+        //==========================DATOS FUNDAMENTALES=========================
+        //======================================================================
+        $datos = array();
+        $session = session();
+        $datos['nombre_completo_usuario'] = $session->nombre_completo_usuario;
+        $datos['email_usuario'] = $session->email_usuario;
+        $datos['imagen_usuario'] = ($session->imagen_usuario == NULL ?
+            ($session->sexo_usuario == SEXO_MASCULINO ? 'no-image-m.png' : 'no-image-f.png') :
+            $session->imagen_usuario);
+
+        //======================================================================
+        //========================DATOS PROPIOS CONTROLLER======================
+        //======================================================================
+        $datos['nombre_pagina'] = 'Detalles producto';
+        //Cargar modelos
+        $datos['producto'] = $producto;
+
+        //Breadcrumb
+        $navegacion = array(
+            array(
+                'tarea' => 'Productos',
+                'href' => route_to('administracion_productos'),
+                'extra' => ''
+            ),
+            array(
+                'tarea' => 'Detalles productos',
+                'href' => '#'
+            )
+        );
+        $datos['breadcrumb'] = breadcrumb_panel($navegacion, 'Detalles del producto: <b>' . $producto->nombre_producto . '</b>');
+
+        return $datos;
+    } //end cargar_datos
+
+    private function crear_vista($nombre_vista, $contenido = array())
+    {
+        $contenido['menu'] = crear_menu_panel();
+        return view($nombre_vista, $contenido);
+    } //end crear_vista
+
+    /*
+	private function enviar_editar_usuario($email = NULL, $usuario = array(), $password_usuario = NULL) {
+		$configuracion_correo = array();
+		$configuracion_correo['asunto'] = 'Información de actualización';
+		$configuracion_correo['background_header'] = '#542772;';
+		$configuracion_correo['logo'] = base_url(IMG_DIR_SISTEMA.'/'.LOGO_SISTEMA_CJM);
+		$configuracion_correo['usuario'] = $usuario;
+		$configuracion_correo['password'] = $password_usuario;
+		$configuracion_correo['rol_usuario'] = ROLES[$usuario["id_rol"]];
+		$configuracion_correo['header'] = 'Datos Generales del Usuario';
+		$configuracion_correo['descripcion'] = 'Te proporcionamos tus credenciales de acceso actualizadas para el SiAdCJM.';
+		$configuracion_correo['acronimo_sistema'] = ACRONIMO_SISTEMA;
+		$plantilla_email = view('plantilla/email_base', $configuracion_correo);
+		return enviar_correo_individual(CORREO_EMISOR_SISTEMA, ACRONIMO_SISTEMA , $email, $configuracion_correo['asunto'], $plantilla_email);
+	}//end enviar_editar_usuario
+	*/
+
+    public function editar()
+    {
+        if ($this->permitido) {
+            $id_producto = $this->request->getPost('id_producto');
+
+            if ($this->request->getPost('nombre_producto') == NULL) {
+                mensaje("Debes proporcionar un nombre para el producto", DANGER_ALERT, "¡No se pudo actualizar!");
+                return $this->index($id_producto);
+            }
+
+            $tabla_productos = new \App\Models\Tabla_productos;
+
+            $producto = [
+                'nombre_producto' => $this->request->getPost('nombre_producto'),
+                'descripcion_producto' => $this->request->getPost('descripcion_producto'),
+                'cantidad_producto' => $this->request->getPost('cantidad_producto'),
+                'stock_minimo_producto' => $this->request->getPost('stock_minimo_producto')
+            ];
+
+            // Verificar si el nombre del producto ya existe (except o el actual)
+            $opcion = $tabla_productos->existe_nombre_excepto_actual($producto['nombre_producto'], $id_producto);
+            if ($opcion == 2 || $opcion == -100) {
+                mensaje("El nombre del producto ya está en uso.", WARNING_ALERT, "¡Nombre en uso!");
+                return $this->index($id_producto);
+            }
+
+            try {
+                // Actualizar información del producto
+                $tabla_productos->update($id_producto, $producto);
+
+                mensaje("El producto ha sido actualizado exitosamente", SUCCESS_ALERT, "¡Actualización exitosa!");
+                return redirect()->to(route_to('detalles_producto', $id_producto));
+            } catch (\Exception $e) {
+                mensaje("Hubo un error al actualizar el producto. Intente nuevamente, por favor", DANGER_ALERT, "¡Error al actualizar!");
+                return redirect()->to(route_to('detalles_producto', $id_producto));
+            }
+        } else {
+            return $this->index();
+        }
+    }
+}//End Class Usuario_detalles

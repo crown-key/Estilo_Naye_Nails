@@ -9,4 +9,5 @@ class Logout extends BaseController{
 		mensaje("", INFO_ALERT, "¡Hasta Pronto ".$nombre."!");
 		return redirect()->to(route_to('login'));
 	}//end index
+
 }//End Class Logout

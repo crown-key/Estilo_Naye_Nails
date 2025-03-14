@@ -41,13 +41,6 @@ class Login extends BaseController
         $datos['titulo_pag'] = 'Login';
         return view($nombre_vista, $datos);
     }
-    
-    public function recuperar_password()
-
-{
-    $datos['titulo_pag'] = 'Login';
-    return view('usuarios/recuperar_password', $datos); // Asegúrate de que esta vista exista
-}
 
 
     public function comprobar()
@@ -59,7 +52,7 @@ class Login extends BaseController
 
 
         if ($usuario != null) {
-            log_message('info', 'Usuario encontrado: ' . $usuario->nombre_usuario);
+            log_message('info', 'Usuario encontrado: ' . $usuario->nombre);
 
             if ($usuario->estatus_usuario == ESTATUS_DESHABILITADO) {
                 mensaje('El usuario no está habilitado, por favor contacte al administrador.', WARNING_ALERT, '¡Usuario inhabilitado!');
@@ -70,11 +63,11 @@ class Login extends BaseController
             $session = session();
             $session->set("sesion_iniciada", TRUE);
             $session->set("id_usuario", $usuario->id_usuario);
-            $session->set("nombre_usuario", $usuario->nombre_usuario);
-            $session->set("nombre_completo_usuario", $usuario->nombre_usuario . ' ' . $usuario->ap_paterno_usuario . ' ' . $usuario->ap_materno_usuario);
-            $session->set("sexo_usuario", $usuario->sexo_usuario);
-            $session->set("email_usuario", $usuario->email_usuario);
-            $session->set("imagen_usuario", $usuario->imagen_usuario);
+            $session->set("nombre_usuario", $usuario->nombre);
+            $session->set("nombre_completo_usuario", $usuario->nombre . ' ' . $usuario->ap_paterno . ' ' . $usuario->ap_materno);
+            $session->set("sexo_usuario", $usuario->sexo);
+            $session->set("email_usuario", $usuario->correo);
+            $session->set("imagen_usuario", $usuario->imagen);
             $session->set("rol_actual", array('nombre' => $usuario->nombre_rol, 'clave' => $usuario->clave_rol));
 
             // Redirigir según el rol del usuario
@@ -89,17 +82,17 @@ class Login extends BaseController
                     return redirect()->to(route_to('dashboard_admin'));
                 case ROL_TRABAJADOR['clave']:
                     $session->set("tarea_actual", TAREA_TRABAJADOR_DASHBOARD);
-                    log_message('info', 'Redirigiendo a dashboard para el rol trabajador');
+                    log_message('info', 'Redirigiendo a dashboard_psicologo para el rol PSICOLOGO');
                     return redirect()->to(route_to('dashboard_trabajador'));
                 default:
                     log_message('info', 'Redirigiendo al login');
                     return redirect()->to(route_to('usuario_login'));
             }
 
-            if ($usuario->sexo_usuario == SEXO_MASCULINO)
-                mensaje('Bienvenido a la ' . NOMBRE_SISTEMA, INFO_ALERT, '¡Hola ' . $session->nombre_usuario . '!', 3500);
+            if ($usuario->sexo == SEXO_MASCULINO)
+                mensaje('Bienvenido a la ' . NOMBRE_SISTEMA, INFO_ALERT, '¡Hola ' . $session->nombre . '!', 3500);
             else
-                mensaje('Bienvenida a la ' . NOMBRE_SISTEMA, INFO_ALERT, '¡Hola ' . $session->nombre_usuario . '!', 3500);
+                mensaje('Bienvenida a la ' . NOMBRE_SISTEMA, INFO_ALERT, '¡Hola ' . $session->nombre . '!', 3500);
 
             log_message('info', 'Redirigiendo según el rol del usuario: ' . $usuario->clave_rol);
         } else {
